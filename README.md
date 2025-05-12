@@ -69,7 +69,9 @@ Table	Description
 
 ## 🔎 Sample Queries
 > - Get All Appointments for a Patient
+
 sql
+
 SELECT p.first_name, p.last_name, a.appointment_date, d.first_name AS doctor_name
 FROM Patients p
 JOIN Appointments a ON p.patient_id = a.patient_id
@@ -77,7 +79,9 @@ JOIN Doctors d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 1;
 
 > - List All Prescriptions for a Patient
+
 sql
+
 SELECT m.name AS medication, pr.dosage, pr.frequency, d.first_name AS prescribed_by
 FROM Prescriptions pr
 JOIN Medications m ON pr.medication_id = m.medication_id
@@ -85,7 +89,9 @@ JOIN Doctors d ON pr.doctor_id = d.doctor_id
 WHERE pr.record_id IN (SELECT record_id FROM MedicalRecords WHERE patient_id = 1);
 
 > - Find Pending Lab Tests
+
 sql
+
 SELECT p.first_name, p.last_name, lt.test_name, lt.test_date
 FROM LabTests lt
 JOIN Patients p ON lt.patient_id = p.patient_id
