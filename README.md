@@ -16,12 +16,12 @@ This project is a relational database designed for managing a medical clinic. It
 Built with MySQL, it ensures data integrity through foreign keys, constraints, and normalized tables.
 
 ## ⚙️ Setup & Installation
-1. Prerequisites
+> - Prerequisites
 MySQL Server (or MariaDB)
 
 MySQL Workbench (or any SQL client)
 
-2. Database Setup
+> - Database Setup
 Option 1: Using MySQL Workbench
 
 Open MySQL Workbench
@@ -52,21 +52,21 @@ mysql -u username -p ClinicManagement < clinic_management.sql
 ## 📂 Database Tables Summary
 
 Table	Description
-Patients-Stores patient personal & contact info
-Doctors-Doctor details & specialties
-Appointments-Links patients & doctors
-MedicalRecords-Patient health history
-Diagnoses-Medical conditions identified
-Medications-List of available drugs
-Prescriptions-Doctor-prescribed medications
-InsuranceProviders-Patient insurance details
-Billing-Clinic invoices & payments
-DoctorSchedules-Doctor availability
-Staff-Non-doctor employees
-LabTests-Medical test results
+> - Patients-Stores patient personal & contact info
+> - Doctors-Doctor details & specialties
+> - Appointments-Links patients & doctors
+> - MedicalRecords-Patient health history
+> - Diagnoses-Medical conditions identified
+> - Medications-List of available drugs
+> - Prescriptions-Doctor-prescribed medications
+> - InsuranceProviders-Patient insurance details
+> - Billing-Clinic invoices & payments
+> - DoctorSchedules-Doctor availability
+> - Staff-Non-doctor employees
+> - LabTests-Medical test results
 
 ## 🔎 Sample Queries
-1. Get All Appointments for a Patient
+> - Get All Appointments for a Patient
 sql
 SELECT p.first_name, p.last_name, a.appointment_date, d.first_name AS doctor_name
 FROM Patients p
@@ -74,7 +74,7 @@ JOIN Appointments a ON p.patient_id = a.patient_id
 JOIN Doctors d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 1;
 
-2. List All Prescriptions for a Patient
+> - List All Prescriptions for a Patient
 sql
 SELECT m.name AS medication, pr.dosage, pr.frequency, d.first_name AS prescribed_by
 FROM Prescriptions pr
@@ -82,7 +82,7 @@ JOIN Medications m ON pr.medication_id = m.medication_id
 JOIN Doctors d ON pr.doctor_id = d.doctor_id
 WHERE pr.record_id IN (SELECT record_id FROM MedicalRecords WHERE patient_id = 1);
 
-3. Find Pending Lab Tests
+> - Find Pending Lab Tests
 sql
 SELECT p.first_name, p.last_name, lt.test_name, lt.test_date
 FROM LabTests lt
