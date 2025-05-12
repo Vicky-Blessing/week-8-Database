@@ -17,11 +17,13 @@ Built with MySQL, it ensures data integrity through foreign keys, constraints, a
 
 ## ⚙️ Setup & Installation
 > - Prerequisites
+
 MySQL Server (or MariaDB)
 
 MySQL Workbench (or any SQL client)
 
 > - Database Setup
+
 Option 1: Using MySQL Workbench
 
 Open MySQL Workbench
